@@ -63,7 +63,7 @@ Project Name: `deploy-html-webapp`
 
 Source Code Management --- Git
 
-Repo URL: https://github.com/your-username/html-webapp-jenkins.git
+Repo URL: `https://github.com/ofc365/jenkin-proj.git`
 
 Build Steps > Add build step > Execute shell
 
