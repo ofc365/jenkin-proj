@@ -53,6 +53,10 @@ sudo systemctl start nginx
 sudo systemctl status nginx
 ```
 
+```
+sudo chown -R jenkins:jenkins /var/www/html
+```
+
 ### Step 4: Create Freestyle Project in Jenkins
 
 Open Jenkins
@@ -71,7 +75,7 @@ Shell script:
 
 ```
 echo "Deploying HTML WebApp to Nginx"
-sudo cp index.html /var/www/html/
+cp index.html /var/www/html/
 ```
 
 Save and click Build Now
