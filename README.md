@@ -36,7 +36,50 @@ Access Jenkins: `http://<your-ec2-public-ip>:8080`
 Unlock using `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
 
 
-### Step 3: Create a repo like
+### Step 3: Install Web Server on EC2
 
-`html-webapp-jenkins`
+```
+# Update the package list
+sudo apt update
+
+# Install NGINX
+sudo apt install nginx -y
+
+# Enable and start NGINX service
+sudo systemctl enable nginx
+sudo systemctl start nginx
+
+# Check status (optional)
+sudo systemctl status nginx
+```
+
+### Step 4: Create Freestyle Project in Jenkins
+
+Open Jenkins
+
+New Item > Freestyle Project
+
+Project Name: `deploy-html-webapp`
+
+Source Code Management --- Git
+
+Repo URL: https://github.com/your-username/html-webapp-jenkins.git
+
+Build Steps > Add build step > Execute shell
+
+Shell script:
+
+```
+echo "Deploying HTML WebApp to Nginx"
+sudo cp index.html /var/www/html/
+```
+
+Save and click Build Now
+
+### Step 5: Access Your App
+
+Visit in browser: `http://<EC2-public-IP>`
+
+You should see:
+"Welcome to Jenkins Deployed WebApp!"
 
