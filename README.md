@@ -1,4 +1,4 @@
-# jenkin-proj
+# jenkin-proj (freestyle)
 
 
 ### Step 1: 
