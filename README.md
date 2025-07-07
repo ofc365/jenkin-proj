@@ -1,4 +1,4 @@
-# jenkin-proj (freestyle)
+# jenkins-proj (freestyle)
 
 ## Freestyle project on Instance
 
@@ -195,5 +195,30 @@ Visit in browser: `http://<EC2-public-IP>:8080`
 
 (If you want to set up automation, set-up github jenkins integration but Have to terminate old container)
 
+
+............................
+
+# jenkins-proj (Pipeline)
+
+
+### Step 1: Setup Jenkins Pipeline Job
+
+Go to Jenkins Dashboard > Click New Item
+
+Choose Pipeline
+
+Name: html-pipeline-deploy
+
+Repo: `https://github.com/ofc365/jenkin-proj.git`
+
+Script Path: Use Jenkinsfile (default name)
+
+Click Save, then click Build Now
+
+### Step 3: Access Your App
+
+Visit in browser: `http://<EC2-public-IP>:8082`
+
+(If you want to set up automation, set-up github jenkins integration but Have to terminate old container)
 
 -----------------------------------------------------------
