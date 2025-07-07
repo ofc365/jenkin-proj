@@ -67,7 +67,7 @@ Project Name: `deploy-html-webapp`
 
 Source Code Management --- Git
 
-Repo URL: `https://github.com/ofc365/jenkin-proj.git`
+Repo URL: `https://github.com/ofc365/jenkin-proj.git` and generate passcode
 
 Build Steps > Add build step > Execute shell
 
@@ -87,3 +87,5 @@ Visit in browser: `http://<EC2-public-IP>`
 You should see:
 "Welcome to Jenkins Deployed WebApp!"
 
+
+(If you want to set up automation, set-up github jenkins integration)
