@@ -139,13 +139,30 @@ docker rm -f htmlweb || true
 docker build -t htmlweb-img .
 
 # Run container on port 80
-docker run -d -p 80:80 --name htmlweb htmlweb-img
+docker run -d -p 81:80 --name htmlweb htmlweb-img
 ```
 
 ### Step 3: Access Your App
 
 Visit in browser: `http://<EC2-public-IP>`
 
+
+NB = IF PORT ERROR
+
+`sudo lsof -i :80`
+
+```
+sudo systemctl stop apache2    # if Apache is running
+sudo systemctl stop nginx      # if NGINX is running
+
+# Optional: disable to prevent restart on reboot
+sudo systemctl disable apache2
+sudo systemctl disable nginx
+```
+
+OR
+
+Use different port
 
 (If you want to set up automation, set-up github jenkins integration but Have to terminate old container)
 
