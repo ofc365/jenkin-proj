@@ -29,7 +29,7 @@ pipeline {
 
     post {
         success {
-            echo 'App deployed successfully on port 8080!'
+            echo 'App deployed successfully on port 8082!'
         }
         failure {
             echo 'Deployment failed!'
