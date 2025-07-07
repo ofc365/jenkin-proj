@@ -115,17 +115,9 @@ sudo systemctl restart jenkins
 
 ### Step 2: Jenkins Freestyle Project Configuration
 
-Go to Jenkins and:
+Go to Jenkins
 
-New Item > Freestyle Project
-
-Project name: `docker-html-webapp`
-
-Source Code Management: Git
-
-Repo URL: https://github.com/ofc365/jenkin-proj.git
-
-Build > Add build step > Execute shell
+Build > Add build step > Execute shell (remove old and update new)
 
 Shell Script:
 
@@ -167,3 +159,41 @@ Visit in browser: `http://<EC2-public-IP>:80`
 
 
 .................
+
+
+## Freestyle project on Docker-compose
+
+### Step 1: Install Docker-compose on Your EC2 Ubuntu
+
+
+```
+sudo apt update
+sudo apt install docker-compose -y
+```
+
+### Step 2: Jenkins Freestyle Project Configuration
+
+Go to Jenkins
+
+Build > Add build step > Execute shell (remove old and update new)
+
+Shell Script:
+
+```
+echo "Deploying using Docker Compose..."
+
+# Stop any previous container
+docker-compose down || true
+
+# Build and start the container
+docker-compose up -d --build
+```
+
+### Step 3: Access Your App
+
+Visit in browser: `http://<EC2-public-IP>:8080`
+
+(If you want to set up automation, set-up github jenkins integration but Have to terminate old container)
+
+
+-----------------------------------------------------------
