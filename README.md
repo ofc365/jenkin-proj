@@ -204,6 +204,14 @@ NB :- Delete previous containers if any
 
 `sudo docker kill <container name>`
 
+`sudo docker rm <container name>`
+
+or
+
+`sudo docker stop <container name>`
+
+`sudo docker rm <container name>`
+
 
 ### Step 1: Setup Jenkins Pipeline Job
 
