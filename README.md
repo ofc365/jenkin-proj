@@ -200,6 +200,10 @@ Visit in browser: `http://<EC2-public-IP>:8080`
 
 # jenkins-proj (Pipeline)
 
+NB :- Delete previous containers if any
+
+`sudo docker kill <container name>`
+
 
 ### Step 1: Setup Jenkins Pipeline Job
 
