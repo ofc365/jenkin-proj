@@ -1,5 +1,6 @@
 # jenkin-proj (freestyle)
 
+## Freestyle project on Instance
 
 ### Step 1: 
 
@@ -89,3 +90,64 @@ You should see:
 
 
 (If you want to set up automation, set-up github jenkins integration)
+
+
+.................
+
+
+## Freestyle project on Docker
+
+### Step 1: Install Docker on Your EC2 Ubuntu
+
+
+```
+sudo apt update
+sudo apt install -y docker.io
+sudo systemctl enable docker
+sudo systemctl start docker
+
+# Add Jenkins user to Docker group
+sudo usermod -aG docker jenkins
+
+# Restart Jenkins to apply group changes
+sudo systemctl restart jenkins
+```
+
+### Step 2: Jenkins Freestyle Project Configuration
+
+Go to Jenkins and:
+
+New Item > Freestyle Project
+
+Project name: `docker-html-webapp`
+
+Source Code Management: Git
+
+Repo URL: https://github.com/ofc365/jenkin-proj.git
+
+Build > Add build step > Execute shell
+
+Shell Script:
+
+```
+echo "Building and Deploying Docker Container for HTML WebApp"
+
+# Remove old container if it exists
+docker rm -f htmlweb || true
+
+# Build Docker image
+docker build -t htmlweb-img .
+
+# Run container on port 80
+docker run -d -p 80:80 --name htmlweb htmlweb-img
+```
+
+### Step 3: Access Your App
+
+Visit in browser: `http://<EC2-public-IP>`
+
+
+(If you want to set up automation, set-up github jenkins integration but Have to terminate old container)
+
+
+.................
