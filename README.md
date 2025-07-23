@@ -1,20 +1,15 @@
-# jenkins-proj (freestyle)
+# jenkins-proj
+========================
 
 ## Freestyle project on Instance
 
 ### Step 1: 
 
-Launch EC2 Instance(ubuntu)
+Launch EC2 Instance(ubuntu) > Instance Type: t2.micro > Key Pair: abc.pem
 
-Instance Type: t2.micro
-
-Key Pair: abc.pem
-
-Security Group: Allow SSH (22), HTTP (80), Jenkins (8080)
 
 ### Step 2: Install Java , Jenkins
 
-SSH into EC2 and run:
 
 ```
 sudo apt update
@@ -60,11 +55,8 @@ sudo chown -R jenkins:jenkins /var/www/html
 
 ### Step 4: Create Freestyle Project in Jenkins
 
-Open Jenkins
 
-New Item > Freestyle Project
-
-Project Name: `deploy-html-webapp`
+New Item > Freestyle Project > Project Name: `deploy-html-webapp`
 
 Source Code Management --- Git
 
