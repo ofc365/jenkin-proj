@@ -38,11 +38,11 @@ sudo chown -R jenkins:jenkins /var/www/html
 ### Step 3: Create Freestyle Project in Jenkins
 
 
-Project Name: `deploy-html-webapp`
+Project Name = `deploy-html-webapp`
 
-Source Code Management: Git
+Source Code Management = Git
 
-Repo URL: `https://github.com/ofc365/jenkin-proj.git` and generate passcode
+Repo URL = `https://github.com/ofc365/jenkin-proj.git` and generate passcode
 
 Execute shell > Shell script:
 
@@ -61,12 +61,11 @@ Visit in browser: `http://<EC2-public-IP>`
 (If you want to set up automation, set-up github jenkins integration)
 
 
-.................
+=======
 
 
-## Freestyle project on Docker
-
-### Step 1: Install Docker on Your EC2 Ubuntu
+# jenkins-proj (Freestyle - on Docker)
+------------------------------------------------
 
 
 ```
@@ -74,32 +73,17 @@ sudo apt update
 sudo apt install -y docker.io
 sudo systemctl enable docker
 sudo systemctl start docker
-
-# Add Jenkins user to Docker group
 sudo usermod -aG docker jenkins
-
-# Restart Jenkins to apply group changes
 sudo systemctl restart jenkins
 ```
 
-### Step 2: Jenkins Freestyle Project Configuration
 
-Go to Jenkins
-
-Build > Add build step > Execute shell (remove old and update new)
-
-Shell Script:
+Execute shell (remove old and update new) > Shell Script:
 
 ```
 echo "Building and Deploying Docker Container for HTML WebApp"
-
-# Remove old container if it exists
 docker rm -f htmlweb || true
-
-# Build Docker image
 docker build -t htmlweb-img .
-
-# Run container on port 80
 docker run -d -p 80:80 --name htmlweb htmlweb-img
 ```
 
@@ -108,10 +92,8 @@ NB = IF PORT ERROR
 `sudo lsof -i :80`
 
 ```
-sudo systemctl stop apache2    # if Apache is running
-sudo systemctl stop nginx      # if NGINX is running
-
-# Optional: disable to prevent restart on reboot
+sudo systemctl stop apache2
+sudo systemctl stop nginx 
 sudo systemctl disable apache2
 sudo systemctl disable nginx
 ```
