@@ -102,7 +102,6 @@ OR
 
 Use different port
 
-### Step 3: Access Your App
 
 Visit in browser: `http://<EC2-public-IP>:80`
 
