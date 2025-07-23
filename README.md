@@ -114,33 +114,19 @@ Visit in browser: `http://<EC2-public-IP>:80`
 
 ## Freestyle project on Docker-compose
 
-### Step 1: Install Docker-compose on Your EC2 Ubuntu
-
 
 ```
 sudo apt update
 sudo apt install docker-compose -y
 ```
 
-### Step 2: Jenkins Freestyle Project Configuration
-
-Go to Jenkins
-
-Build > Add build step > Execute shell (remove old and update new)
-
-Shell Script:
+Execute shell (remove old and update new) > Shell Script:
 
 ```
-echo "Deploying using Docker Compose..."
-
-# Stop any previous container
 docker-compose down || true
-
-# Build and start the container
 docker-compose up -d --build
 ```
 
-### Step 3: Access Your App
 
 Visit in browser: `http://<EC2-public-IP>:8080`
 
