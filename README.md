@@ -38,15 +38,13 @@ sudo chown -R jenkins:jenkins /var/www/html
 ### Step 3: Create Freestyle Project in Jenkins
 
 
-New Item > Freestyle Project > Project Name: `deploy-html-webapp`
+Project Name: `deploy-html-webapp`
 
-Source Code Management --- Git
+Source Code Management: Git
 
 Repo URL: `https://github.com/ofc365/jenkin-proj.git` and generate passcode
 
-Build Steps > Add build step > Execute shell
-
-Shell script:
+Execute shell > Shell script:
 
 ```
 echo "Deploying HTML WebApp to Nginx"
@@ -55,12 +53,9 @@ cp index.html /var/www/html/
 
 Save and click Build Now
 
-### Step 5: Access Your App
+### Step 4: Access Your App
 
 Visit in browser: `http://<EC2-public-IP>`
-
-You should see:
-"Welcome to Jenkins Deployed WebApp!"
 
 
 (If you want to set up automation, set-up github jenkins integration)
